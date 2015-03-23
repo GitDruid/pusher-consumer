@@ -33,7 +33,7 @@ public class Visualizer{
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response getVersion() {
 		if(serviceVersion == null) {
-			serviceVersion = new Version("visualizer", 1, "None", "None");
+			serviceVersion = new Version("visualizer", 2, "None", "None");
 			
 			if (storage != null) {
 				serviceVersion.setStorage(storage.getInfo());
