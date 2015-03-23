@@ -72,7 +72,7 @@ public class Consumer{
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response getVersion() {
 		if(serviceVersion == null) {
-			serviceVersion = new Version("consumer", 1, "None", "None");
+			serviceVersion = new Version("consumer", 2, "None", "None");
 			
 			if (cache != null) {
 				serviceVersion.setCache(cache.getInfo());
