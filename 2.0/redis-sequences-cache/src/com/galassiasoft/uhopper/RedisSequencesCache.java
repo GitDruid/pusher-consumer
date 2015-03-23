@@ -242,19 +242,6 @@ public class RedisSequencesCache implements SequencesCache {
 			return null;
 		}
         
-        /* version 1
-         *  
-		try (Jedis jedis = pool.getResource()) {
-			result = jedis.set(LOCK_KEY(variableName), lockValue, "nx", "px", 30000L);
-			
-			if(result != null) {
-				return lockValue;
-			} else {
-				return null;
-			}
-		}
-		*/
-
 	}
 	
 	@Override
