@@ -1,29 +1,23 @@
 package com.galassiasoft.uhopper;
 
-import java.util.ArrayList;
-
-public class S3SequencesFilesystem implements SequencesStorage {
+public class S3SequencesFilesystem implements SequencesFilesystem {
 
 	@Override
-	public void saveSequence(Sequence sequence) {
+	public void saveFile() {
 		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public ArrayList<Sequence> searchSequence(Long from, Long to, Integer sensor_id) {
-		//Not implemented
-		return null;
+		
 	}
 
 	@Override
 	public String getInfo() {
-		return "Local filesystem";
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	@Override
 	public void dispose() {
-		// Disposing objects
+		// TODO Auto-generated method stub
+		
 	}
 
 }

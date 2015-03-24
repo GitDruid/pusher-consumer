@@ -3,8 +3,8 @@
 	<name>s3-sequences-filesystem</name>
 	<comment></comment>
 	<projects>
-		<project>sequences-storage</project>
 		<project>sequences</project>
+		<project>sequences-filesystem</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
