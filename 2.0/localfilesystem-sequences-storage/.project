@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>localfilesystem-sequences-storage</name>
+	<name>s3-sequences-filesystem</name>
 	<comment></comment>
 	<projects>
 		<project>sequences-storage</project>

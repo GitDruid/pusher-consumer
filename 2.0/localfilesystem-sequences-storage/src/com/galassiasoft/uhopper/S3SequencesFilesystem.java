@@ -2,7 +2,7 @@ package com.galassiasoft.uhopper;
 
 import java.util.ArrayList;
 
-public class LocalFilesystemSequencesStorage implements SequencesStorage {
+public class S3SequencesFilesystem implements SequencesStorage {
 
 	@Override
 	public void saveSequence(Sequence sequence) {
