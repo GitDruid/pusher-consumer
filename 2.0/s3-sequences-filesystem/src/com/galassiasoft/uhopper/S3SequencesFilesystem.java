@@ -4,6 +4,10 @@ import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 
+import javax.inject.Named;
+
+import org.jvnet.hk2.annotations.Service;
+
 import com.amazonaws.AmazonServiceException;
 import com.amazonaws.auth.BasicAWSCredentials;
 import com.amazonaws.services.s3.AmazonS3Client;
@@ -11,6 +15,7 @@ import com.amazonaws.services.s3.S3ClientOptions;
 import com.amazonaws.services.s3.model.ObjectMetadata;
 import com.owlike.genson.Genson;
 
+@Service @Named
 public class S3SequencesFilesystem implements SequencesFilesystem {
 
 	private AmazonS3Client s3Client;
@@ -21,7 +26,7 @@ public class S3SequencesFilesystem implements SequencesFilesystem {
 	
 	public S3SequencesFilesystem(String host, int port, String accessKey, String secretKey) {
 		BasicAWSCredentials credentials = new BasicAWSCredentials(accessKey, secretKey);
-		AmazonS3Client s3Client = new AmazonS3Client(credentials);
+		s3Client = new AmazonS3Client(credentials);
 		s3Client.setEndpoint("http://" + host + ":" + port);
 		s3Client.setS3ClientOptions(new S3ClientOptions().withPathStyleAccess(true));
 		try {
@@ -38,6 +43,7 @@ public class S3SequencesFilesystem implements SequencesFilesystem {
 		ObjectMetadata om = new ObjectMetadata();
 		om.setContentType("application/json");
 		om.setContentLength(jsonSequence.length());
+		om.setContentEncoding("UTF-8");
 		
 		s3Client.putObject("com.galassiasoft.bucket", "longest-sequence", getStream(jsonSequence), om);
 	}
