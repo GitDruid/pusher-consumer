@@ -20,6 +20,12 @@
         <dependent-module deploy-path="/WEB-INF/lib" handle="module:/resource/redis-sequences-cache/redis-sequences-cache">
             <dependency-type>uses</dependency-type>
         </dependent-module>
+        <dependent-module archiveName="sequences-filesystem.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/sequences-filesystem/sequences-filesystem">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="s3-sequences-filesystem.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/s3-sequences-filesystem/s3-sequences-filesystem">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
         <property name="java-output-path" value="/consumer/build/classes"/>
         <property name="context-root" value="consumer"/>
     </wb-module>

@@ -19,6 +19,13 @@ public class CustomApplication extends ResourceConfig {
                 bindFactory(SequencesCacheFactory.class).to(SequencesCache.class);
             }
         });
+        
+        register(new AbstractBinder() {
+            @Override
+            protected void configure() {
+                bindFactory(SequencesFilesystemFactory.class).to(SequencesFilesystem.class);
+            }
+        });
     }
     
 }

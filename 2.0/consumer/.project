@@ -9,6 +9,8 @@
 		<project>local-sequences-cache</project>
 		<project>sequences</project>
 		<project>redis-sequences-cache</project>
+		<project>sequences-filesystem</project>
+		<project>s3-sequences-filesystem</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

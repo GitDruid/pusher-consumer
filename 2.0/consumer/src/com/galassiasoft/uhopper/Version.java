@@ -9,15 +9,17 @@ public class Version {
 	private int release;
 	private String cache;
 	private String storage;
+	private String filesystem;
 	
 	public Version() {
 	}
 	
-	public Version(String name, int release, String cache, String storage) {
+	public Version(String name, int release, String cache, String storage, String filesystem) {
 		this.name = name;
 		this.release = release;
 		this.cache = cache;
 		this.storage = storage;
+		this.setFilesystem(filesystem);
 	}
 
 	public String getName() {
@@ -50,5 +52,13 @@ public class Version {
 
 	public void setStorage(String storage) {
 		this.storage = storage;
+	}
+
+	public String getFilesystem() {
+		return filesystem;
+	}
+
+	public void setFilesystem(String filesystem) {
+		this.filesystem = filesystem;
 	}
 }

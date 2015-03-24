@@ -34,5 +34,7 @@
 	<classpathentry combineaccessrules="false" exported="true" kind="src" path="/sequences-cache"/>
 	<classpathentry combineaccessrules="false" exported="true" kind="src" path="/sequences"/>
 	<classpathentry combineaccessrules="false" exported="true" kind="src" path="/redis-sequences-cache"/>
+	<classpathentry combineaccessrules="false" exported="true" kind="src" path="/s3-sequences-filesystem"/>
+	<classpathentry combineaccessrules="false" exported="true" kind="src" path="/sequences-filesystem"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

@@ -19,7 +19,10 @@ public class Consumer{
 
 	@Inject
 	private SequencesStorage storage;
-	
+
+	@Inject
+	private SequencesFilesystem filesystem;
+
 	@POST
 	@Path("/data")
 	@Produces(MediaType.APPLICATION_JSON)
@@ -39,7 +42,7 @@ public class Consumer{
 			Sequence newSequence = cache.appendToMonotonicSequence(sr.getSensor_id(), currentSample);
 			if(newSequence != null) {
 				
-				//Save sequence for current sensor
+				//Store sequence for current sensor
 				storage.saveSequence( newSequence );
 				
 				//Acquire a distributed lock to check (and eventually save) if it is the longest sequence
@@ -54,8 +57,9 @@ public class Consumer{
 					
 					if(newSequence.getSamples().size() > maxLength) {
 						maxLength = newSequence.getSamples().size();
-						//save to disc (start an asynchronous thread to save the file?)
-						//...
+						
+						filesystem.saveToFile(newSequence, "LongestSequence.txt");
+						
 						cache.setVariable("MAX_SEQUENCE_LENGTH", maxLength.toString());
 					}
 				
@@ -72,7 +76,7 @@ public class Consumer{
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response getVersion() {
 		if(serviceVersion == null) {
-			serviceVersion = new Version("consumer", 2, "None", "None");
+			serviceVersion = new Version("consumer", 2, "None", "None", "None");
 			
 			if (cache != null) {
 				serviceVersion.setCache(cache.getInfo());
@@ -80,6 +84,10 @@ public class Consumer{
 			
 			if (storage != null) {
 				serviceVersion.setStorage(storage.getInfo());
+			}
+			
+			if (filesystem != null) {
+				serviceVersion.setFilesystem(filesystem.getInfo());
 			}
 		}
 		
